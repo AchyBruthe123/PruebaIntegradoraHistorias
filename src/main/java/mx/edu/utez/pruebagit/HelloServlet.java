@@ -1,6 +1,7 @@
 package mx.edu.utez.pruebagit;
 
 import java.io.*;
+import java.sql.SQLException;
 
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -16,9 +17,8 @@ public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-        try DatabaseConnectionManager.getConnection(){
 
-        }
+
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");

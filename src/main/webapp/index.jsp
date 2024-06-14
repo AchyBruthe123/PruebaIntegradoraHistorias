@@ -5,9 +5,23 @@
     <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+    <form method="post" action="login">
+        <label>ingrese su usuario</label>
+        <input type="text" name="user_name">
+        <br>
+        <label>ingrese su contraseña</label>
+        <input type="password" name="pass">
+        <br>
+        <%
+
+            HttpSession sesion = request.getSession();
+            String mensaje = (String) sesion.getAttribute("Mensaje");
+
+            if (mensaje != null) {
+        %>
+        <p style="color: red"><%=mensaje%></p>
+            <% } %>
+        <input type="submit" value="Iniciar sesión">
+    </form>
 </body>
 </html>
